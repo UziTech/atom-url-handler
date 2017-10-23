@@ -7,7 +7,13 @@ Here are the [OSX](https://github.com/WizardOfOgz/atom-handler) and [Linux](http
 
   1. Download and extract the [ZIP](https://github.com/UziTech/atom-url-handler/archive/master.zip)
   2. Execute install.bat
-  3. Click links with the atm:// protocol to open in atom :tada:
+	3. Choose a protocol (default is atm)
+  4. Click links that start with atm:// (or the protocol you chose) to open in atom :tada:
+	
+#### Note:
+
+`atom-url-handler.bat` will be copied to `%LOCALAPPDATA%` so you can delete the folder that was extracted after install.
+	
 
 # URL Examples
 
