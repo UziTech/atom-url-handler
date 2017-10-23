@@ -6,6 +6,12 @@ set url="%url:*file://=%
 
 :: get file
 for /f "tokens=1 delims=^&" %%i in (%url%) do (set file=%%i)
+if "%file%" == "" (
+	exit /B 1;
+)
+if "%file:~0,1%" == ":" (
+	exit /B 1;
+)
 if %url:&=% == %url% (
   goto open
 )
@@ -18,12 +24,12 @@ if %query:&=% == %query% (
   goto open
 )
 
-REM :: get column
+:: get column
 set query="%query:*&=%
 for /f "tokens=2 delims==^&" %%i in (%query%) do (set col=%%i)
 set file=%file%:%col%
 
-REM :: open url
+:: open url
 :open
 
 atom "%file%"
