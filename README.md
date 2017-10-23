@@ -14,9 +14,9 @@ Here are the [OSX](https://github.com/WizardOfOgz/atom-handler) and [Linux](http
 The following URLs will work
 
 ```
-atm://open?url=file://C:\path\to\file
-atm://open?url=file://C:\path\to\file&line=10
-atm://open?url=file://C:\path\to\file:10
-atm://open?url=file://C:\path\to\file&line=10&column=2
-atm://open?url=file://C:\path\to\file:10:2
+atm://open?url=file://C:\path\to\file.ext
+atm://open?url=file://C:\path\to\file.ext&line=10
+atm://open?url=file://C:\path\to\file.ext:10
+atm://open?url=file://C:\path\to\file.ext&line=10&column=2
+atm://open?url=file://C:\path\to\file.ext:10:2
 ```
