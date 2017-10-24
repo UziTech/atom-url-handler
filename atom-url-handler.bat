@@ -7,9 +7,11 @@ set url="%~1"
 set file="%url:*file://=%
 for /f "tokens=1 delims=^&" %%i in (%file%) do (set file=%%i)
 if "%file%" == "" (
+	echo Invalid File
 	exit /B 1
 )
 if "%file:~0,1%" == ":" (
+	echo Invalid File
 	exit /B 1
 )
 
