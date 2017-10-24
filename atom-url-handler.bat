@@ -2,30 +2,32 @@
 
 :: get url
 set url="%~1"
-set url="%url:*file://=%
 
 :: get file
-for /f "tokens=1 delims=^&" %%i in (%url%) do (set file=%%i)
+set file="%url:*file://=%
+for /f "tokens=1 delims=^&" %%i in (%file%) do (set file=%%i)
 if "%file%" == "" (
-	exit /B 1;
+	exit /B 1
 )
 if "%file:~0,1%" == ":" (
-	exit /B 1;
-)
-if %url:&=% == %url% (
-  goto open
+	exit /B 1
 )
 
 :: get line
-set query="%url:*&=%
-for /f "tokens=2 delims==^&" %%i in (%query%) do (set line=%%i)
-set file=%file%:%line%
-if %query:&=% == %query% (
+if %url:&line=% == %url% (
   goto open
 )
+set line=
+set query="%url:*&line=|%
+for /f "tokens=2 delims==^&" %%i in (%query%) do (set line=%%i)
+set file=%file%:%line%
 
-:: get column
-set query="%query:*&=%
+:: get col or column
+if %url:&col=% == %url% (
+  goto open
+)
+set col=
+set query="%url:*&col=|%
 for /f "tokens=2 delims==^&" %%i in (%query%) do (set col=%%i)
 set file=%file%:%col%
 

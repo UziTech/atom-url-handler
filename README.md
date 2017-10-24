@@ -9,11 +9,10 @@ Here are the [OSX](https://github.com/WizardOfOgz/atom-handler) and [Linux](http
   2. Execute install.bat
 	3. Choose a protocol (default is atm)
   4. Click links that start with atm:// (or the protocol you chose) to open in atom :tada:
-	
+
 #### Note:
 
 `atom-url-handler.bat` will be copied to `%LOCALAPPDATA%` so you can delete the folder that was extracted after install.
-	
 
 # URL Examples
 
@@ -23,6 +22,7 @@ The following URLs will work
 atm://open?url=file://C:\path\to\file.ext
 atm://open?url=file://C:\path\to\file.ext&line=10
 atm://open?url=file://C:\path\to\file.ext:10
+atm://open?url=file://C:\path\to\file.ext&line=10&col=2
 atm://open?url=file://C:\path\to\file.ext&line=10&column=2
 atm://open?url=file://C:\path\to\file.ext:10:2
 ```
