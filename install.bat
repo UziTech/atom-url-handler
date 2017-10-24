@@ -17,9 +17,6 @@ if not "%~2" == "" (
 :: choose protocol
 set prot=atm
 set /P "prot=Protocol [atm]? "
-if "%prot%" == "" (
-	set prot=atm
-)
 
 :start
 
@@ -42,9 +39,8 @@ if %ERRORLEVEL% NEQ 0 goto install
 
 :: overwrite if exists
 :overwrite
-set overwrite=
+set overwrite=n
 set /P "overwrite=The protocol '%prot%' already exists. Do you want to overwrite it [y/N]? "
-if "%overwrite%" == "" goto protocolselect
 if /I "%overwrite%" == "n" goto protocolselect
 if /I "%overwrite%" == "no" goto protocolselect
 if /I "%overwrite%" == "y" goto install
