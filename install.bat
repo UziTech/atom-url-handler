@@ -52,13 +52,14 @@ goto overwrite
 :install
 
 :: copy handler
-copy /Y "%~dp0atom-url-handler.bat" "%LOCALAPPDATA%\atom-url-handler.bat"
+copy /Y "%~dp0atom-url-handler.bat" "%LOCALAPPDATA%\atom-url-handler.bat" >NUL
 
 :: add registry keys
-reg add HKCR\%prot% /f
-reg add HKCR\%prot% /ve /d "URL:Open File in Atom" /f
-reg add HKCR\%prot% /v "URL Protocol" /d "" /f
-reg add HKCR\%prot%\shell /f
-reg add HKCR\%prot%\shell\open /f
-reg add HKCR\%prot%\shell\open\command /f
-reg add HKCR\%prot%\shell\open\command /ve /d "\"%LOCALAPPDATA%\atom-url-handler.bat\" \"%%1\"" /f
+reg delete HKCR\%prot% /f >NUL 2>&1
+reg add HKCR\%prot% /f >NUL
+reg add HKCR\%prot% /ve /d "URL:Open File in Atom" /f >NUL
+reg add HKCR\%prot% /v "URL Protocol" /d "" /f >NUL
+reg add HKCR\%prot%\shell /f >NUL
+reg add HKCR\%prot%\shell\open /f >NUL
+reg add HKCR\%prot%\shell\open\command /f >NUL
+reg add HKCR\%prot%\shell\open\command /ve /d "\"%LOCALAPPDATA%\atom-url-handler.bat\" \"%%1\"" /f >NUL
