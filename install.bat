@@ -75,3 +75,19 @@ reg add HKCR\%prot%\shell /f >NUL
 reg add HKCR\%prot%\shell\open /f >NUL
 reg add HKCR\%prot%\shell\open\command /f >NUL
 reg add HKCR\%prot%\shell\open\command /ve /d "\"%LOCALAPPDATA%\atom-url-handler.bat\" \"%%1\"" /f >NUL
+
+echo Successfully added the '%prot%' protocol
+
+:another
+
+set another=n
+set /P "another=Do you want to add another protocol [y/N]? "
+if /I "%another%" == "y" goto protocolselect
+if /I "%another%" == "yes" goto protocolselect
+if /I "%another%" == "n" goto end
+if /I "%another%" == "no" goto end
+
+echo I didn't understand your answer. Please type Y or N
+goto another
+
+:end
