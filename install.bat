@@ -12,21 +12,19 @@ if not "%~2" == "" (
 )
 
 :: choose protocol
-set /P prot=Protocol [atm]? 
+set /P "prot=Protocol [atm]? "
 if "%prot%" == "" (
 	set prot=atm
 )
 
 :start
-echo "%prot%"
-pause
 
 :: copy handler
 copy /Y "%~dp0atom-url-handler.bat" "%LOCALAPPDATA%\atom-url-handler.bat"
 
 :: add registry keys
 reg add HKCR\%prot% /f
-reg add HKCR\%prot% /ve /d "URL:Open Atom" /f
+reg add HKCR\%prot% /ve /d "URL:Open File in Atom" /f
 reg add HKCR\%prot% /v "URL Protocol" /d "" /f
 reg add HKCR\%prot%\shell /f
 reg add HKCR\%prot%\shell\open /f
