@@ -15,7 +15,7 @@ if not "%~2" == "" (
 :protocolselect
 
 :: choose protocol
-set prot=
+set prot=atm
 set /P "prot=Protocol [atm]? "
 if "%prot%" == "" (
 	set prot=atm
@@ -24,6 +24,10 @@ if "%prot%" == "" (
 :start
 
 if not "%prot:.=%" == "%prot%" (
+	echo Invalid Protocol
+	goto protocolselect
+)
+if not "%prot: =%" == "%prot%" (
 	echo Invalid Protocol
 	goto protocolselect
 )
@@ -53,10 +57,22 @@ goto overwrite
 
 :: copy handler
 copy /Y "%~dp0atom-url-handler.bat" "%LOCALAPPDATA%\atom-url-handler.bat" >NUL
+if %ERRORLEVEL% NEQ 0 (
+	echo Error copying handler
+	pause
+	exit /B 1
+)
 
 :: add registry keys
 reg delete HKCR\%prot% /f >NUL 2>&1
-reg add HKCR\%prot% /f >NUL
+reg add HKCR\%prot% /f >NUL 2>&1
+
+:: if invalid key select different protocol
+if %ERRORLEVEL% NEQ 0 (
+	echo Error adding registry key
+	goto protocolselect
+)
+
 reg add HKCR\%prot% /ve /d "URL:Open File in Atom" /f >NUL
 reg add HKCR\%prot% /v "URL Protocol" /d "" /f >NUL
 reg add HKCR\%prot%\shell /f >NUL
