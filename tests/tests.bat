@@ -32,6 +32,7 @@ call :call_handler "atm://open/?url=" "Invalid URL"
 call :call_handler "atm://open/?url=file%%%%3A//C%%%%3A\path\to\file.ext" "C:\path\to\file.ext"
 call :call_handler "atm://open/?url=file://C:\path%%%%20to\file.ext" "C:\path to\file.ext"
 call :call_handler "atm://open/?url=file://C:\path+to\file.ext" "C:\path to\file.ext"
+call :call_handler "atm://open/?url=file://C:\path%%%%2Bto\file.ext" "C:\path+to\file.ext"
 call :call_handler "atm://open/?url=file:%%%%2F%%%%2FC:\path\to\file.ext" "C:\path\to\file.ext"
 call :call_handler "atm://open/?url=file://C:%%%%5Cpath%%%%5Cto%%%%5Cfile.ext" "C:\path\to\file.ext"
 
@@ -53,4 +54,4 @@ if not "%file:"=%" == "%~2" (
 )
 set /A "passedtests+=1"
 echo pass
-exit /B
+REM exit /B

@@ -7,6 +7,7 @@ set url=%url:?=&%
 set url=!url:%%3A=:!
 set url=!url:%%20= !
 set url=%url:+= %
+set url=!url:%%2B=+!
 set url=!url:%%2F=/!
 set url=!url:%%5C=\!
 
