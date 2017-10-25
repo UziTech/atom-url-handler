@@ -53,4 +53,9 @@ set file=%file%:%col%
 :: open url
 :open
 
+if "%~2" == "testing" (
+	echo "%file%"
+	exit /B
+)
+
 atom "%file%"
