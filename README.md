@@ -32,7 +32,8 @@ atm://open?url=file://C:\path\to\file.ext:10
 atm://open?url=file://C:\path\to\file.ext&line=10&col=2
 atm://open?url=file://C:\path\to\file.ext&line=10&column=2
 atm://open?url=file://C:\path\to\file.ext:10:2
-atm://open?url=file://C:\path%20to\file.ext:10:2
+atm://open?url=file://C:\path+to\file.ext:10:2
+atm://open?url=file%3A%2F%2FC%3A%5Cpath%20to%5Cfile.ext&line=10&col=2
 ```
 
 # Common Protocols
