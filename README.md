@@ -1,4 +1,7 @@
 # Windows Atom URL Handler
+
+[![Build status](https://ci.appveyor.com/api/projects/status/8hdd15yfsh8r3ww7?svg=true)](https://ci.appveyor.com/project/UziTech/atom-url-handler)
+
 atm:// URL handler for Atom editor on Windows
 
 Here are the [OSX](https://github.com/WizardOfOgz/atom-handler) and [Linux](https://github.com/eclemens/atom-url-handler) versions
