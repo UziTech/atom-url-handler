@@ -9,5 +9,5 @@ clone_depth: 10
 skip_tags: true
 build: off
 test_script:
-  - ./tests/tests.bat
+  - ./tests.bat
 deploy: off
