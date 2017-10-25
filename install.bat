@@ -1,4 +1,5 @@
 @echo off
+setlocal
 
 :: request admin privileges
 if not "%~1"=="is_admin" (
@@ -37,8 +38,9 @@ if "%prot%" == "*" (
 reg query HKCR\%prot% >NUL 2>&1
 if %ERRORLEVEL% NEQ 0 goto install
 
-:: overwrite if exists
 :overwrite
+
+:: overwrite if exists
 set overwrite=n
 set /P "overwrite=The protocol '%prot%' already exists. Do you want to overwrite it [y/N]? "
 if /I "%overwrite%" == "n" goto protocolselect
@@ -80,6 +82,7 @@ echo Successfully added the '%prot%' protocol
 
 :another
 
+:: add another protocol
 set another=n
 set /P "another=Do you want to add another protocol [y/N]? "
 if /I "%another%" == "y" goto protocolselect
