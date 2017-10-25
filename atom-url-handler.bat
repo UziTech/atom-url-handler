@@ -1,19 +1,35 @@
 @echo off
+setlocal EnableDelayedExpansion
 
 :: get url
 set url="%~1"
+set url=%url:?=&%
+set url=!url:%%3A=:!
+set url=!url:%%20= !
+set url=%url:+= %
+set url=!url:%%2F=/!
+set url=!url:%%5C=\!
 
 :: get file
-set file="%url:*file://=%
+if %url:file://=% == %url% (
+	echo Invalid URL
+	exit /B 1
+)
+set file="%url:*file://=|%
+if %file% == "" (
+	echo Invalid File
+	exit /B 1
+)
 for /f "tokens=1 delims=^&" %%i in (%file%) do (set file=%%i)
-if "%file%" == "" (
+if "%file%" == "|" (
 	echo Invalid File
 	exit /B 1
 )
-if "%file:~0,1%" == ":" (
+if "%file:~1,1%" == ":" (
 	echo Invalid File
 	exit /B 1
 )
+set file=%file:~1%
 
 :: get line
 if %url:&line=% == %url% (
