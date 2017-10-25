@@ -1,13 +1,13 @@
 branches:
   only:
     - master
-    - /^greenkeeper/.*$/
-
 version: "{build}"
-platform: x64
+platform:
+  - x86
+  - x64
 clone_depth: 10
 skip_tags: true
 build: off
 test_script:
-  - tests/tests.bat
+  - ./tests/tests.bat
 deploy: off
