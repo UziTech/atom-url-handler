@@ -1,6 +1,6 @@
-# Windows Atom URL Handler
-
 [![Build status](https://ci.appveyor.com/api/projects/status/8hdd15yfsh8r3ww7?svg=true)](https://ci.appveyor.com/project/UziTech/atom-url-handler)
+
+# Windows Atom URL Handler
 
 atm:// URL handler for Atom editor on Windows
 
@@ -32,6 +32,7 @@ atm://open?url=file://C:\path\to\file.ext:10
 atm://open?url=file://C:\path\to\file.ext&line=10&col=2
 atm://open?url=file://C:\path\to\file.ext&line=10&column=2
 atm://open?url=file://C:\path\to\file.ext:10:2
+atm://open?url=file://C:\path%20to\file.ext:10:2
 ```
 
 # Common Protocols
